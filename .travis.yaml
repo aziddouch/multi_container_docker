@@ -22,3 +22,4 @@ after_success:
   - docker push aziddouch/multi-nginx
   - docker push aziddouch/multi-server
   - docker push aziddouch/multi-worker
+  # comment
