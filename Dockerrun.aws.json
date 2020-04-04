@@ -1,0 +1,35 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitios": [
+    {
+      "name": "client",
+      "image": "aziddouch/multi-client",
+      "hostname": "client",
+      "essetial": false
+    },
+    {
+      "name": "server",
+      "image": "aziddouch/multi-server",
+      "hostname": "api",
+      "essetial": false
+    },
+    {
+      "name": "worker",
+      "image": "aziddouch/multi-worker",
+      "hostname": "worker",
+      "essetial": false
+    },
+    {
+      "name": "worker",
+      "image": "aziddouch/multi-nginx",
+      "essetial": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
+    }
+  ]
+}
